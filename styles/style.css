@@ -1,0 +1,126 @@
+html {
+    background-image: linear-gradient(45deg, white, wheat);
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#contactInformation {
+    height: 150px;
+    width: 100%;
+}
+
+#contactInformation span {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+#contactInformation a {
+    text-decoration: none;
+    color: black;
+    padding: 0px 5px;
+    transition: all 0.1s ease;
+}
+
+#contactInformation a:hover {
+    color: rgb(88, 73, 45);
+    text-shadow: 1px 1px black;
+    font-size: 18px;
+}
+
+#contactInformation header {
+    font-size: 50px;
+    font-weight: bolder;
+    text-shadow: 1px 1px rgb(88, 73, 45);
+    text-align: center;
+    margin: 25px;
+}
+
+#calcContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+}
+
+#calcBody {
+    background-color: rgb(34, 33, 33);
+    width: 25rem;
+    height: 25rem;
+    box-shadow: 2px 2px 1px black;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+#calcDisplay {
+    margin: 1.5rem;
+    margin-bottom: 2.5rem;
+    height: 3.5rem;
+    width: 88.5%;
+    background-color: white;
+    border-radius: 4px;
+}
+
+#calcKeys {
+    display: flex;
+}
+
+#calcDigits {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    margin-left: 1.5rem;
+}
+
+#calcDigits div {
+    display: flex;
+}
+
+#calcOperations {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.5rem;
+}
+
+#calcOperations div {
+    display: flex;
+}
+
+.keys {
+    display: block;
+    background-color: darkgray;
+    width: 4rem;
+    height: 2.4rem;
+    border: 1px solid rgb(34, 33, 33);
+    padding-top: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.keys:hover {
+    background-color: gray;
+}
+
+.clickedKey {
+    background-color: darkgray;
+
+}
+
+#blackBox {
+    background-color: rgb(34, 33, 33);
+    cursor :auto;
+}
+
+#clear {
+    background-color: rgb(248, 109, 44);
+    color: white;
+}
+
+#equalsSign {
+    width: 8.1rem;
+    background-color: rgb(245, 200, 179);
+}
+
