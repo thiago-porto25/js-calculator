@@ -23,15 +23,16 @@ html {
 }
 
 #contactInformation a:hover {
-    color: rgb(88, 73, 45);
+    color: rgb(153, 57, 33);
     text-shadow: 1px 1px black;
     font-size: 18px;
 }
 
 #contactInformation header {
     font-size: 50px;
+    color: rgb(153, 57, 33);
     font-weight: bolder;
-    text-shadow: 1px 1px rgb(88, 73, 45);
+    text-shadow: 1px 1px rgb(221, 152, 113);
     text-align: center;
     margin: 25px;
 }

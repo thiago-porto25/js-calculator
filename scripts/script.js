@@ -1,9 +1,8 @@
 /*
-if the display has a floting point, disable that button;
 
 add a number maximum;
 
-don't let the user repeat the operator one after the other;
+find a way to add a zero before the float number if it is pressed after a operator;
 
 check for bugs if user presses "=" early;
 
@@ -43,17 +42,17 @@ keys.addEventListener("click", e => {
             action == "multiply") {
 
             let help = display.textContent;
-            let iadd = help.indexOf("+");
-            let isub = help.indexOf("-");
-            let imul = help.indexOf("*");
-            let idiv = help.indexOf("/");
+            let iAdd = help.indexOf("+");
+            let iSub = help.indexOf("-");
+            let iMul = help.indexOf("*");
+            let iDiv = help.indexOf("/");
 
             display.textContent += " " + keyContent + " ";
 
-            if (help.slice(iadd, iadd + 1) == "+" ||
-                help.slice(isub, isub + 1) == "-" ||
-                help.slice(imul, imul + 1) == "*" ||
-                help.slice(idiv, idiv + 1) == "/") {
+            if (help.slice(iAdd, iAdd + 1) == "+" ||
+                help.slice(iSub, iSub + 1) == "-" ||
+                help.slice(iMul, iMul + 1) == "*" ||
+                help.slice(iDiv, iDiv + 1) == "/") {
                 inputArray = display.textContent.split(" ");
                 operate(inputArray[0], inputArray[1], inputArray[2]);
                 display.textContent += " " + keyContent + " ";
@@ -61,10 +60,38 @@ keys.addEventListener("click", e => {
         }
 
         if (action == "decimal") {
-            display.textContent += keyContent;
+
+            let decimalCheck = display.textContent;
+            let iDecimal = decimalCheck.indexOf(".");
+            let iAddDec = decimalCheck.indexOf("+");
+            let iSubDec = decimalCheck.indexOf("-");
+            let iMulDec = decimalCheck.indexOf("*");
+            let iDivDec = decimalCheck.indexOf("/");
+            let lastDec = decimalCheck.split(".").length - 1;
+            console.log(lastDec);
+
+            if (lastDec == 2) {
+                return;
+            }
+
+            if (decimalCheck.slice(iDecimal, iDecimal + 1) == "." &&
+                decimalCheck.slice(iAddDec, iAddDec + 1) == "+" ||
+                decimalCheck.slice(iSubDec, iSubDec + 1) == "-" ||
+                decimalCheck.slice(iMulDec, iMulDec + 1) == "*" ||
+                decimalCheck.slice(iDivDec, iDivDec + 1) == "/") {
+                display.textContent += keyContent;
+            }
+
+            if (decimalCheck.slice(iDecimal, iDecimal + 1) == ".") {
+                return;
+            }
+
+            else display.textContent += keyContent;
         }
         if (action == "undo") {
             let test = display.textContent.slice(-2, -1);
+            let zeroTest = display.textContent;
+            console.log(zeroTest.length)
 
             if (test == "+" ||
                 test == "-" ||
@@ -76,6 +103,10 @@ keys.addEventListener("click", e => {
                 display.textContent = display.textContent.slice(0, -2);
             }
             else display.textContent = display.textContent.slice(0, -1);
+
+            if (zeroTest.length == "1") {
+                display.textContent = "0";
+            }
         }
         if (action == "clear") {
             display.textContent = "0";
