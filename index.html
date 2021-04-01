@@ -32,31 +32,35 @@
 
             <div id="calcBody">
 
-                <div id="calcDisplay"></div>
+                <div id="calcDisplay">
+
+                    <p>0</p>
+
+                </div>
 
                 <div id="calcKeys">
 
                     <div id="calcDigits">
 
                         <div>
-                            <span data-key="1" class="digits keys">1</span>
-                            <span class="digits keys">2</span>
-                            <span class="digits keys">3</span>
+                            <button class="digits keys">1</button>
+                            <button class="digits keys">2</button>
+                            <button class="digits keys">3</button>
                         </div>
                         <div>
-                            <span class="digits keys">4</span>
-                            <span class="digits keys">5</span>
-                            <span class="digits keys">6</span>
+                            <button class="digits keys">4</button>
+                            <button class="digits keys">5</button>
+                            <button class="digits keys">6</button>
                         </div>
                         <div>
-                            <span class="digits keys">7</span>
-                            <span class="digits keys">8</span>
-                            <span class="digits keys">9</span>
+                            <button class="digits keys">7</button>
+                            <button class="digits keys">8</button>
+                            <button class="digits keys">9</button>
                         </div>
                         <div>
-                            <span id="blackBox" class="digits keys"></span>
-                            <span class="digits keys">0</span>
-                            <span class="digits keys">.</span>
+                            <div id="blackBox" class="digits"></div>
+                            <button class="digits keys">0</button>
+                            <button data-action="decimal" class="digits keys">.</button>
                         </div>
 
                     </div>
@@ -64,18 +68,18 @@
                     <div id="calcOperations">
 
                         <div>
-                            <span class="operations keys">Undo</span>
-                            <span id="clear" class="operations keys">Clear</span>
+                            <button data-action="undo" class="operations keys">Undo</button>
+                            <button data-action="clear" id="clear" class="operations keys">Clear</button>
                         </div>
                         <div>
-                            <span class="operations keys">/</span>
-                            <span class="operations keys">*</span>
+                            <button data-action="divide" class="operations keys">/</button>
+                            <button data-action="multiply" class="operations keys">*</button>
                         </div>
                         <div>
-                            <span class="operations keys">+</span>
-                            <span class="operations keys">-</span>
+                            <button data-action="add" class="operations keys">+</button>
+                            <button data-action="subtract" class="operations keys">-</button>
                         </div>
-                        <span id="equalsSign" class="operations keys">=</span>
+                        <button data-action="calculate" id="equalsSign" class="operations keys">=</button>
 
                     </div>
 
