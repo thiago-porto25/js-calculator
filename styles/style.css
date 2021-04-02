@@ -149,3 +149,11 @@ html {
     background-color:rgb(221, 152, 113);
 }
 
+.operations {
+    background-color: rgb(229, 205, 147);
+}
+
+.operations:hover {
+    background-color: rgb(161, 134, 73);
+}
+
