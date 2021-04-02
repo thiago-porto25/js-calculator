@@ -2,10 +2,6 @@
 
 add a number maximum;
 
-find a way to add a zero before the float number if it is pressed after a operator;
-
-check for bugs if user presses "=" early;
-
 add keyboard support;
 */
 
@@ -47,16 +43,24 @@ keys.addEventListener("click", e => {
             let iMul = help.indexOf("*");
             let iDiv = help.indexOf("/");
 
-            display.textContent += " " + keyContent + " ";
 
             if (help.slice(iAdd, iAdd + 1) == "+" ||
                 help.slice(iSub, iSub + 1) == "-" ||
                 help.slice(iMul, iMul + 1) == "*" ||
                 help.slice(iDiv, iDiv + 1) == "/") {
                 inputArray = display.textContent.split(" ");
-                operate(inputArray[0], inputArray[1], inputArray[2]);
-                display.textContent += " " + keyContent + " ";
+
+                if (inputArray[2] == "") {
+                    let replacedOperator = help.replace(/\+|\-|\*|\//i, keyContent);
+                    display.textContent = replacedOperator.toString();
+                }
+
+                else {
+                    operate(inputArray[0], inputArray[1], inputArray[2]);
+                    display.textContent += " " + keyContent + " ";
+                }
             }
+            else display.textContent += " " + keyContent + " ";
         }
 
         if (action == "decimal") {
@@ -68,13 +72,17 @@ keys.addEventListener("click", e => {
             let iMulDec = decimalCheck.indexOf("*");
             let iDivDec = decimalCheck.indexOf("/");
             let lastDec = decimalCheck.split(".").length - 1;
-            console.log(lastDec);
 
             if (lastDec == 2) {
                 return;
             }
+            console.log(decimalCheck.slice(0, -1));
+            console.log(isNaN(decimalCheck.slice(0, -1)));
+            if (isNaN(decimalCheck.slice(0, -1))) {
+                display.textContent += "0.";
+            }
 
-            if (decimalCheck.slice(iDecimal, iDecimal + 1) == "." &&
+            else if (decimalCheck.slice(iDecimal, iDecimal + 1) == "." &&
                 decimalCheck.slice(iAddDec, iAddDec + 1) == "+" ||
                 decimalCheck.slice(iSubDec, iSubDec + 1) == "-" ||
                 decimalCheck.slice(iMulDec, iMulDec + 1) == "*" ||
@@ -82,7 +90,7 @@ keys.addEventListener("click", e => {
                 display.textContent += keyContent;
             }
 
-            if (decimalCheck.slice(iDecimal, iDecimal + 1) == ".") {
+            else if (decimalCheck.slice(iDecimal, iDecimal + 1) == ".") {
                 return;
             }
 
@@ -91,7 +99,6 @@ keys.addEventListener("click", e => {
         if (action == "undo") {
             let test = display.textContent.slice(-2, -1);
             let zeroTest = display.textContent;
-            console.log(zeroTest.length)
 
             if (test == "+" ||
                 test == "-" ||
@@ -100,7 +107,7 @@ keys.addEventListener("click", e => {
                 display.textContent = display.textContent.slice(0, -2);
             }
             if (test == " ") {
-                display.textContent = display.textContent.slice(0, -2);
+                display.textContent = display.textContent.slice(0, -1);
             }
             else display.textContent = display.textContent.slice(0, -1);
 
@@ -113,7 +120,11 @@ keys.addEventListener("click", e => {
         }
         if (action == "calculate") {
             inputArray = display.textContent.split(" ");
-            operate(inputArray[0], inputArray[1], inputArray[2]);
+            console.log(inputArray);
+
+            if (inputArray[2] == "") return;
+
+            else operate(inputArray[0], inputArray[1], inputArray[2]);
         }
     }
 
@@ -159,5 +170,5 @@ function operate(num1, operator, num2) {
     }
     else return "ERROR";
 
-    display.textContent = Math.round(result * 100) / 100;
+    display.textContent = Math.round(result * 1000) / 1000;
 }
