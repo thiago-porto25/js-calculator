@@ -78,7 +78,10 @@ keys.addEventListener("click", e => {
             }
             console.log(decimalCheck.slice(0, -1));
             console.log(isNaN(decimalCheck.slice(0, -1)));
-            if (isNaN(decimalCheck.slice(0, -1))) {
+            console.log(decimalCheck.slice(-1, 0));
+            console.log(isNaN(decimalCheck.slice(-1, 0)));
+
+            if (isNaN(decimalCheck.slice(-2, -1))) {
                 display.textContent += "0.";
             }
 
