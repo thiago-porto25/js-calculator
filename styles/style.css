@@ -109,7 +109,7 @@ html {
     border: 1px solid rgb(34, 33, 33);
     text-align: center;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.07s ease;
     font-size: 18px;
 }
 
