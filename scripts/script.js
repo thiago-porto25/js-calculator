@@ -9,9 +9,10 @@ const keys = document.querySelector("#calcKeys");
 const display = document.querySelector("#calcDisplay p");
 const button = Array.from(document.querySelectorAll("button"));
 
-console.log(display.textContent)
+keys.addEventListener("click", clicksKeys);
+keys.addEventListener("keydown", clicksKeys);
 
-keys.addEventListener("click", e => {
+function clicksKeys(e) {
 
     if (e.target.matches("button")) {
 
@@ -131,7 +132,7 @@ keys.addEventListener("click", e => {
         }
     }
 
-})
+}
 
 
 
@@ -151,6 +152,7 @@ function divide(num1, num2) {
     if (num2 == 0) return "Hey! Do you want to glitch the Matrix?"
     else return num1 / num2;
 }
+
 
 function operate(num1, operator, num2) {
     let result;
