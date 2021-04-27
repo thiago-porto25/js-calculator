@@ -77,14 +77,6 @@ function clicksKeys(e) {
             if (lastDec == 2) {
                 return;
             }
-            console.log(decimalCheck.slice(0, -1));
-            console.log(isNaN(decimalCheck.slice(0, -1)));
-            console.log(decimalCheck.slice(-1, 0));
-            console.log(isNaN(decimalCheck.slice(-1, 0)));
-
-            if (isNaN(decimalCheck.slice(-2, -1))) {
-                display.textContent += "0.";
-            }
 
             else if (decimalCheck.slice(iDecimal, iDecimal + 1) == "." &&
                 decimalCheck.slice(iAddDec, iAddDec + 1) == "+" ||
